@@ -1,0 +1,16 @@
+version: '3.4'
+
+# Define services
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: "symfony-cache-segfault-reproducer"
+    environment:
+      APP_ENV: dev
+      OPCACHE_USE_PRELOAD: 'true'
+    ports:
+      - 8080:80
+    volumes:
+      - ../:/app
